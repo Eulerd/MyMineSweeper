@@ -24,7 +24,15 @@ void Main()
 
 		if (Input::MouseL.clicked)
 		{			
-			field.OpenCell(pos);
+			if (field.IsMineCell(pos))
+			{
+				Println(L"GameOver");
+				// Game Over
+			}
+			else
+			{
+				field.AutoOpenCells(pos);
+			}
 		}
 
 		if (Input::MouseR.clicked)

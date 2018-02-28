@@ -87,6 +87,11 @@ bool Cell::GetIsMine()
 	return _is_mine;
 }
 
+int Cell::GetCount()
+{
+	return _count;
+}
+
 Color Cell::count_color() const
 {
 	switch (_count)

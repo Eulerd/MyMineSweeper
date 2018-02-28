@@ -39,6 +39,12 @@ public:
 	/// <returns>セルにmineがあるか</returns>
 	bool IsMineCell(Point pos);
 
+	/// <summary>
+	/// 開けるセルを自動で開ける
+	/// </summary>
+	/// <param name="pos">セルを開ける基準の座標</param>
+	void AutoOpenCells(Point pos);
+
 public:
 	/// <summary>
 	/// セルの大きさ
@@ -55,6 +61,8 @@ private:
 	int to_count(Grid<bool> mines, Point pos);
 
 private:
-	Grid<Cell> cells;
+	Grid<Cell> _cells;
+	Grid<bool> _cells_table;
+	Size _size;
 };
 

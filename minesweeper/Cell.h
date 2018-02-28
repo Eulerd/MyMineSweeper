@@ -42,6 +42,7 @@ public:
 	void SetPos(Point pos);
 
 	bool GetIsMine();
+	int GetCount();
 
 private:
 	bool _is_mine;
