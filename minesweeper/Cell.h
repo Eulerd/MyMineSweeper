@@ -31,6 +31,7 @@ public:
 
 	/// <summary>
 	/// ƒZƒ‹‚ğŸ‚Ìó‘Ô‚É•ÏX‚·‚é
+	/// None -> Flag -> Question -> None‚Ì‡‚Å•ÏX‚³‚ê‚é
 	/// </summary>
 	void ChangeNextState();
 
@@ -39,6 +40,8 @@ public:
 	/// </summary>
 	/// <param name="pos">ˆÚ“®æ‚ÌêŠ</param>
 	void SetPos(Point pos);
+
+	bool GetIsMine();
 
 private:
 	bool _is_mine;

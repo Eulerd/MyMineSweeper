@@ -28,7 +28,10 @@ bool Cell::Open()
 
 void Cell::Draw() const
 {
+	// ŠJ‚¢‚½‚Ç‚¤‚©‚í‚©‚é‚æ‚¤‚ÉƒZƒ‹‚ğ•`‰æ
 	_rect.draw(_is_open ? Palette::Gray : Palette::Darkgray);
+
+	// ˜gü‚ğ•`‰æ
 	_rect.drawFrame(0.5, 0, Palette::Lightgrey);
 
 	if (_is_open)
@@ -39,6 +42,7 @@ void Cell::Draw() const
 		}
 		else if(_count > 0)
 		{
+			// ü‚è‚É‚ ‚émine”‚ğ•`‰æ
 			FontAsset(L"cell")(ToString(_count)).drawCenter(_rect.center, count_color());
 		}
 	}
@@ -76,6 +80,11 @@ void Cell::ChangeNextState()
 void Cell::SetPos(Point pos)
 {
 	_rect.setPos(pos);
+}
+
+bool Cell::GetIsMine()
+{
+	return _is_mine;
 }
 
 Color Cell::count_color() const
