@@ -6,6 +6,8 @@ Field::Field(Size size, int count, Point origin)
 {
 	Grid<bool> mines{ size };
 	cells = Grid<Cell>(size);
+
+	// mineをランダムにcount個生成する
 	for (int i = 0; i < count; i++)
 	{
 		bool & mine = mines[Random(0, size.y)][Random(0, size.x)];
@@ -20,6 +22,7 @@ Field::Field(Size size, int count, Point origin)
 		}
 	}
 
+	// フィールドのセルを生成しそれぞれoriginを基準とした描画場所を設定する
 	for (int i = 0; i < mines.width; i++)
 	{
 		for (int j = 0; j < mines.height; j++)
@@ -52,12 +55,18 @@ bool Field::OpenCell(Point pos)
 	return cells[pos.y][pos.x].Open();
 }
 
+bool Field::IsMineCell(Point pos)
+{
+	return cells[pos.y][pos.x].GetIsMine();
+}
+
 int Field::to_count(Grid<bool> mines, Point pos)
 {
 	int count = 0;
 
 	for (int i = pos.x - 1; i <= pos.x + 1; i++)
 	{
+		// フィールド外はカウントせずに飛ばす
 		if (i < 0 || i >= mines.width)
 		{
 			continue;
@@ -65,6 +74,7 @@ int Field::to_count(Grid<bool> mines, Point pos)
 
 		for (int j = pos.y - 1; j <= pos.y + 1; j++)
 		{
+			// フィールド外はカウントせずに飛ばす
 			if (j < 0 || j >= mines.height)
 			{
 				continue;

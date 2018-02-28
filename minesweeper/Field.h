@@ -32,6 +32,13 @@ public:
 	/// <returns>セル内にmineがあったか</returns>
 	bool OpenCell(Point pos);
 
+	/// <summary>
+	/// そのセルにmineがあるか調べる
+	/// </summary>
+	/// <param name="pos">セルの座標</param>
+	/// <returns>セルにmineがあるか</returns>
+	bool IsMineCell(Point pos);
+
 public:
 	/// <summary>
 	/// セルの大きさ
