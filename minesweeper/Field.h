@@ -49,7 +49,7 @@ public:
 	/// <summary>
 	/// ƒZƒ‹‚Ì‘å‚«‚³
 	/// </summary>
-	static const int CellSize = 32;
+	static const int CellSize = 24;
 
 private:
 	/// <summary>
